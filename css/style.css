@@ -1,0 +1,56 @@
+body {
+  font-family: sans-serif;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+form > div {
+  margin: 15px 0;
+}
+
+form input[type="checkbox"] {
+  margin-left: 0;
+}
+
+label {
+  display: block;
+}
+
+#calculatedGrade,
+#projectedGrade,
+#worstGrade,
+#bestGrade {
+  font-weight: bold;
+}
+
+#grades {
+  display: flex;
+  gap: 50px;
+}
+
+#grades > div {
+  flex: 1;
+  width: 100%;
+  background: white;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.best {
+  background: #48c774 !important;
+  color: white !important;
+}
+
+.worst {
+  background: #f03a5f !important;
+  color: white !important;
+}
+
+.projected {
+  background: #3298dc !important;
+  color: white !important;
+}

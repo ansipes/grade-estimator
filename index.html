@@ -5,10 +5,188 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
     <script src="./js/script.js" defer></script>
-    <title>Grade Predictor</title>
+    <title>Grade Estimator</title>
   </head>
   <body>
-    <h1>MEJO 187 Grade Predictor</h1>
-    <p>Use the fields below to enter your returned grades.</p>
+    <main>
+      <h1>MEJO 187 Grade Estimator</h1>
+      <p>Use the fields below to enter your returned grades.</p>
+      <form action="">
+        <div>
+          <label for="exercisesQuizzes">Exercises and Quizzes (15%)</label>
+          <input
+            id="exercisesQuizzes"
+            name="exercisesQuizzes"
+            type="number"
+            min="0"
+            max="100"
+            value="85"
+          />
+          <div>
+            <label for="exercisesQuizzesLock">
+              <input
+                type="checkbox"
+                id="exercisesQuizzesLock"
+                name="exercisesQuizzesLock"
+              />Graded</label
+            >
+          </div>
+        </div>
+
+        <div>
+          <label for="participation">Participation (10%)</label>
+          <input
+            id="participation"
+            name="participation"
+            type="number"
+            min="0"
+            max="100"
+            value="85"
+          />
+          <div>
+            <label for="participationLock">
+              <input
+                type="checkbox"
+                id="participationLock"
+                name="participationLock"
+              />Graded</label
+            >
+          </div>
+        </div>
+
+        <div>
+          <label for="projectOne">Project One (15%)</label>
+          <input
+            id="projectOne"
+            name="projectOne"
+            type="number"
+            min="0"
+            max="100"
+            value="85"
+          />
+          <div>
+            <label for="projectOneLock">
+              <input
+                type="checkbox"
+                id="projectOneLock"
+                name="projectOneLock"
+              />Graded</label
+            >
+          </div>
+        </div>
+
+        <div>
+          <label for="projectTwo">Project Two (15%)</label>
+          <input
+            id="projectTwo"
+            name="projectTwo"
+            type="number"
+            min="0"
+            max="100"
+            value="85"
+          />
+          <div>
+            <label for="projectTwoLock">
+              <input
+                type="checkbox"
+                id="projectTwoLock"
+                name="projectTwoLock"
+              />Graded</label
+            >
+          </div>
+        </div>
+
+        <div>
+          <label for="projectThree">Project Three (15%)</label>
+          <input
+            id="projectThree"
+            name="projectThree"
+            type="number"
+            min="0"
+            max="100"
+            value="85"
+          />
+          <div>
+            <label for="projectThreeLock">
+              <input
+                type="checkbox"
+                id="projectThreeLock"
+                name="projectThreeLock"
+              />Graded</label
+            >
+          </div>
+        </div>
+
+        <div>
+          <label for="projectFour">Project Four (20%)</label>
+          <input
+            id="projectFour"
+            name="projectFour"
+            type="number"
+            min="0"
+            max="100"
+            value="85"
+          />
+          <div>
+            <label for="projectFourLock">
+              <input
+                type="checkbox"
+                id="projectFourLock"
+                name="projectFourLock"
+              />Graded</label
+            >
+          </div>
+        </div>
+
+        <div>
+          <label for="websiteCritique">Website Critique (10%)</label>
+          <input
+            id="websiteCritique"
+            name="websiteCritique"
+            type="number"
+            min="0"
+            max="100"
+            value="85"
+          />
+          <div>
+            <label for="websiteCritiqueLock">
+              <input
+                type="checkbox"
+                id="websiteCritiqueLock"
+                name="websiteCritiqueLock"
+              />Graded</label
+            >
+          </div>
+        </div>
+      </form>
+      <div id="grades">
+        <div>
+          <h2 id="calculatedGrade"></h2>
+          <h4>Calculated Grade</h4>
+          <p>
+            The grades entered above graded status are multiplied by respective
+            weight and summed.
+          </p>
+        </div>
+        <div class="projected">
+          <h2 id="projectedGrade"></h2>
+          <h4>Projected Grade</h4>
+          <p>
+            An estimated final grade based on your average performance on graded
+            items.
+          </p>
+        </div>
+        <div class="worst">
+          <h2 id="worstGrade"></h2>
+          <h4>Worst Grade</h4>
+          <p>An estimated grade if all ungraded items received a 0.</p>
+        </div>
+        <div class="best">
+          <h2 id="bestGrade"></h2>
+          <h4>Best Grade</h4>
+          <p>An estimated grade if all ungraded items received a 100.</p>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
