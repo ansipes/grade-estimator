@@ -10,10 +10,18 @@
   <body>
     <main>
       <h1>MEJO 187 Grade Estimator</h1>
-      <p>Use the fields below to enter your returned grades.</p>
+      <p>
+        Use the fields below to enter grades. If the grade has been graded and
+        returned, check "Graded". You will see live updates for your Calculated,
+        Projected, Worst, and Best grades. Read each respective card to learn
+        more.
+      </p>
+      <hr style="margin: 50px 0" />
       <form action="">
-        <div>
-          <label for="exercisesQuizzes">Exercises and Quizzes (15%)</label>
+        <div class="category">
+          <label for="exercisesQuizzes">
+            <strong>Exercises and Quizzes (10%)</strong>
+          </label>
           <input
             id="exercisesQuizzes"
             name="exercisesQuizzes"
@@ -25,6 +33,7 @@
           <div>
             <label for="exercisesQuizzesLock">
               <input
+                checked
                 type="checkbox"
                 id="exercisesQuizzesLock"
                 name="exercisesQuizzesLock"
@@ -33,8 +42,10 @@
           </div>
         </div>
 
-        <div>
-          <label for="participation">Participation (10%)</label>
+        <div class="category">
+          <label for="participation">
+            <strong>Participation (10%)</strong>
+          </label>
           <input
             id="participation"
             name="participation"
@@ -46,6 +57,7 @@
           <div>
             <label for="participationLock">
               <input
+                checked
                 type="checkbox"
                 id="participationLock"
                 name="participationLock"
@@ -54,8 +66,10 @@
           </div>
         </div>
 
-        <div>
-          <label for="projectOne">Project One (15%)</label>
+        <div class="category">
+          <label for="projectOne">
+            <strong>Project One (15%)</strong>
+          </label>
           <input
             id="projectOne"
             name="projectOne"
@@ -67,6 +81,7 @@
           <div>
             <label for="projectOneLock">
               <input
+                checked
                 type="checkbox"
                 id="projectOneLock"
                 name="projectOneLock"
@@ -75,8 +90,10 @@
           </div>
         </div>
 
-        <div>
-          <label for="projectTwo">Project Two (15%)</label>
+        <div class="category">
+          <label for="projectTwo">
+            <strong>Project Two (15%)</strong>
+          </label>
           <input
             id="projectTwo"
             name="projectTwo"
@@ -88,6 +105,7 @@
           <div>
             <label for="projectTwoLock">
               <input
+                checked
                 type="checkbox"
                 id="projectTwoLock"
                 name="projectTwoLock"
@@ -96,8 +114,33 @@
           </div>
         </div>
 
-        <div>
-          <label for="projectThree">Project Three (15%)</label>
+        <div class="category">
+          <label for="websiteCritique">
+            <strong>Website Critique (15%)</strong>
+          </label>
+          <input
+            id="websiteCritique"
+            name="websiteCritique"
+            type="number"
+            min="0"
+            max="100"
+            value="85"
+          />
+          <div>
+            <label for="websiteCritiqueLock">
+              <input
+                type="checkbox"
+                id="websiteCritiqueLock"
+                name="websiteCritiqueLock"
+              />Graded</label
+            >
+          </div>
+        </div>
+
+        <div class="category">
+          <label for="projectThree">
+            <strong>Project Three (20%)</strong>
+          </label>
           <input
             id="projectThree"
             name="projectThree"
@@ -117,8 +160,10 @@
           </div>
         </div>
 
-        <div>
-          <label for="projectFour">Project Four (20%)</label>
+        <div class="category">
+          <label for="projectFour">
+            <strong>Project Four (15%)</strong>
+          </label>
           <input
             id="projectFour"
             name="projectFour"
@@ -138,30 +183,27 @@
           </div>
         </div>
 
-        <div>
-          <label for="websiteCritique">Website Critique (10%)</label>
+        <div class="category">
+          <label for="projectFour">
+            <strong>Unexcused Absences</strong>
+          </label>
           <input
-            id="websiteCritique"
-            name="websiteCritique"
+            id="unexcusedAbsences"
+            name="unexcusedAbsences"
             type="number"
             min="0"
-            max="100"
-            value="85"
+            max="28"
+            value="0"
           />
-          <div>
-            <label for="websiteCritiqueLock">
-              <input
-                type="checkbox"
-                id="websiteCritiqueLock"
-                name="websiteCritiqueLock"
-              />Graded</label
-            >
-          </div>
         </div>
       </form>
+      <hr style="margin: 50px 0" />
       <div id="grades">
         <div>
-          <h2 id="calculatedGrade"></h2>
+          <div class="flex">
+            <h2 id="calculatedGrade"></h2>
+            <h2 id="calculatedLetterGrade"></h2>
+          </div>
           <h4>Calculated Grade</h4>
           <p>
             The grades entered above graded status are multiplied by respective
@@ -169,7 +211,10 @@
           </p>
         </div>
         <div class="projected">
-          <h2 id="projectedGrade"></h2>
+          <div class="flex">
+            <h2 id="projectedGrade"></h2>
+            <h2 id="projectedLetterGrade"></h2>
+          </div>
           <h4>Projected Grade</h4>
           <p>
             An estimated final grade based on your average performance on graded
@@ -177,12 +222,18 @@
           </p>
         </div>
         <div class="worst">
-          <h2 id="worstGrade"></h2>
+          <div class="flex">
+            <h2 id="worstGrade"></h2>
+            <h2 id="worstLetterGrade"></h2>
+          </div>
           <h4>Worst Grade</h4>
           <p>An estimated grade if all ungraded items received a 0.</p>
         </div>
         <div class="best">
-          <h2 id="bestGrade"></h2>
+          <div class="flex">
+            <h2 id="bestGrade"></h2>
+            <h2 id="bestLetterGrade"></h2>
+          </div>
           <h4>Best Grade</h4>
           <p>An estimated grade if all ungraded items received a 100.</p>
         </div>

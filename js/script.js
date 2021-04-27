@@ -12,20 +12,27 @@ let projectFour = document.querySelector("#projectFour");
 let projectFourLock = document.querySelector("#projectFourLock");
 let websiteCritique = document.querySelector("#websiteCritique");
 let websiteCritiqueLock = document.querySelector("#websiteCritiqueLock");
+let unexcusedAbsences = document.querySelector("#unexcusedAbsences");
 
 let calculatedGrade = document.querySelector("#calculatedGrade");
 let projectedGrade = document.querySelector("#projectedGrade");
+let calculatedLetterGrade = document.querySelector("#calculatedLetterGrade");
+let projectedLetterGrade = document.querySelector("#projectedLetterGrade");
+let bestGrade = document.querySelector("#bestGrade");
+let bestLetterGrade = document.querySelector("#bestLetterGrade");
+let worstGrade = document.querySelector("#worstGrade");
+let worstLetterGrade = document.querySelector("#worstLetterGrade");
 
 let average = false;
 
 const weights = {
-  exercisesQuizzes: 0.15,
+  exercisesQuizzes: 0.1,
   participation: 0.1,
   projectOne: 0.15,
   projectTwo: 0.15,
-  projectThree: 0.15,
-  projectFour: 0.2,
-  websiteCritique: 0.1,
+  projectThree: 0.2,
+  projectFour: 0.15,
+  websiteCritique: 0.15,
 };
 
 function getGrade(el) {
@@ -81,9 +88,11 @@ function getProjectedGrade() {
 }
 
 function updateProjectedGrade() {
-  const grade = getProjectedGrade();
+  const grade = getProjectedGrade() - parseInt(unexcusedAbsences.value);
+  const letter = getLetterGrade(grade);
   const error = "85%";
   projectedGrade.innerHTML = grade ? `${grade}%` : error;
+  projectedLetterGrade.innerHTML = letter;
 }
 
 function getCalculatedGrades() {
@@ -98,8 +107,10 @@ function getCalculatedGrades() {
 }
 
 function updateCalculatedGrade() {
-  const grade = getCalculatedGrades();
+  const grade = getCalculatedGrades() - parseInt(unexcusedAbsences.value);
+  const letter = getLetterGrade(grade);
   calculatedGrade.innerHTML = `${grade}%`;
+  calculatedLetterGrade.innerHTML = letter;
 }
 
 function getWorstGrade() {
@@ -115,8 +126,10 @@ function getWorstGrade() {
 }
 
 function updateWorstGrade() {
-  const grade = getWorstGrade();
+  const grade = getWorstGrade() - parseInt(unexcusedAbsences.value);
+  const letter = getLetterGrade(grade);
   worstGrade.innerHTML = `${grade}%`;
+  worstLetterGrade.innerHTML = letter;
 }
 
 function getBestGrade() {
@@ -146,8 +159,10 @@ function getLetterGrade(grade) {
 }
 
 function updateBestGrade() {
-  const grade = getBestGrade();
+  const grade = getBestGrade() - parseInt(unexcusedAbsences.value);
+  const letter = getLetterGrade(grade);
   bestGrade.innerHTML = `${grade}%`;
+  bestLetterGrade.innerHTML = letter;
 }
 
 function updateGrades() {
@@ -171,5 +186,6 @@ projectTwoLock.addEventListener("input", updateGrades);
 projectThreeLock.addEventListener("input", updateGrades);
 projectFourLock.addEventListener("input", updateGrades);
 websiteCritiqueLock.addEventListener("input", updateGrades);
+unexcusedAbsences.addEventListener("input", updateGrades);
 
 updateGrades();
