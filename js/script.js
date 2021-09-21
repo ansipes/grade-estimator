@@ -88,7 +88,7 @@ function getProjectedGrade() {
 }
 
 function updateProjectedGrade() {
-  const grade = getProjectedGrade() - parseInt(unexcusedAbsences.value);
+  const grade = getProjectedGrade() - getUnexcusedAbsencesPenalty();
   const letter = getLetterGrade(grade);
   const error = "85%";
   projectedGrade.innerHTML = grade ? `${grade}%` : error;
@@ -106,8 +106,13 @@ function getCalculatedGrades() {
     .toFixed(2);
 }
 
+function getUnexcusedAbsencesPenalty() {
+  const count = parseInt(unexcusedAbsences.value);
+  return count > 1 ? count : 0;
+}
+
 function updateCalculatedGrade() {
-  const grade = getCalculatedGrades() - parseInt(unexcusedAbsences.value);
+  const grade = getCalculatedGrades() - getUnexcusedAbsencesPenalty();
   const letter = getLetterGrade(grade);
   calculatedGrade.innerHTML = `${grade}%`;
   calculatedLetterGrade.innerHTML = letter;
@@ -126,7 +131,7 @@ function getWorstGrade() {
 }
 
 function updateWorstGrade() {
-  const grade = getWorstGrade() - parseInt(unexcusedAbsences.value);
+  const grade = getWorstGrade() - getUnexcusedAbsencesPenalty();
   const letter = getLetterGrade(grade);
   worstGrade.innerHTML = `${grade}%`;
   worstLetterGrade.innerHTML = letter;
@@ -159,7 +164,7 @@ function getLetterGrade(grade) {
 }
 
 function updateBestGrade() {
-  const grade = getBestGrade() - parseInt(unexcusedAbsences.value);
+  const grade = getBestGrade() - getUnexcusedAbsencesPenalty();
   const letter = getLetterGrade(grade);
   bestGrade.innerHTML = `${grade}%`;
   bestLetterGrade.innerHTML = letter;
